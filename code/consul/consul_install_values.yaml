@@ -1,0 +1,77 @@
+# Settings under "global" pertain to all components
+# of the Consul installation.
+global:
+  # The name of your installation. This should always
+  # be set to consul.
+  name: consul
+  # Enable metrics so you can observe what's happening
+  # in your installation.
+  metrics:
+    enabled: true
+  # Consul image.
+  image: hashicorp/consul:1.14.3
+  #image: hashicorp/consul-enterprise:1.14.3-ent
+  # Envoy image.
+  imageEnvoy: envoyproxy/envoy:v1.24.0
+
+# Settings under "server" configure Consul servers.
+server:
+  # replicas sets the number of servers.
+  # In production, this should be 3 or 5, however
+  # for testing, this should be set to 1.
+  replicas: 1
+  # bootstrapExpect: 1
+
+# Enable Consul's service mesh functionality.
+connectInject:
+  enabled: true
+
+# Settings under "controller" configure Consul's controller
+# that manages custom resources.
+# Custom resources are covered in later chapters.
+controller:
+  enabled: true
+
+# Install Prometheus, a metrics database.
+prometheus:
+  enabled: true
+
+# Settings under "ui" configure the Consul UI.
+ui:
+  enabled: true
+  service:
+    #  Registers a Kubernetes Service for the Consul UI as a NodePort.
+    type: LoadBalancer
+    # Use port 8500 for the UI.
+    port:
+      http: 8500
+  dashboardURLTemplates:
+    service: "http://localhost:3000/d/sndc7LT4z/services?var-Service={{Service.Name}}&orgId=1&from=now-5m&to=now"    
+########################## ENTERPRISE
+  # [Enterprise Only] This value refers to a Kubernetes or Vault secret that you have created
+  # that contains your enterprise license. It is required if you are using an
+  # enterprise binary. Defining it here applies it to your cluster once a leader
+  # has been elected. If you are not using an enterprise image or if you plan to
+  # introduce the license key via another route, then set these fields to null.
+  # Note: the job to apply license runs on both Helm installs and upgrades.
+#enterpriseLicense:
+#  # The name of the Kubernetes or Vault secret that holds the enterprise license.
+#  # A Kubernetes secret must be in the same namespace that Consul is installed into.
+#  # @type: string
+#   secretName: 'consul-lic'
+#  # The key within the Kubernetes or Vault secret that holds the enterprise license.
+#  # @type: string
+#   secretKey: 'license'
+#  # Manages license autoload. Required in Consul 1.10.0+, 1.9.7+ and 1.8.12+.
+#   enableLicenseAutoload: true
+ingressGateways:
+  enabled: true
+  defaults:
+    affinity: null
+  gateways:
+    - name: ingress-gateway
+      service:
+        type: LoadBalancer
+        ports:
+          - port: 8080
+      replicas: 1
