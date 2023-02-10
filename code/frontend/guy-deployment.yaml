@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guy
+  labels:
+    app: guy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guy
+  template:
+    metadata:
+      labels:
+        app: guy
+      annotations:
+        consul.hashicorp.com/connect-inject: "true"
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/consul-up/birdwatcher-frontend:1.0.0
+          env:
+            - name: BIND_ADDR
+              value: "0.0.0.0:6061"
+            - name: BACKEND_URL
+              value: "http://backend"
+            - name: TRACING_URL
+              value: "http://jaeger-collector.default:9411"
+          ports:
+            - containerPort: 6061

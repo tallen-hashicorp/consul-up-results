@@ -8,3 +8,5 @@ spec:
   sources:
     - name: frontend
       action: allow
+    - name: guy
+      action: allow  

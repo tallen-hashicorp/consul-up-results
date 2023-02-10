@@ -9,4 +9,6 @@ spec:
       protocol: http
       services:
         - name: frontend
-          hosts: ["localhost"]
+          hosts: ["bird.localhost"]
+        - name: guy
+          hosts: ["guy.localhost"]  

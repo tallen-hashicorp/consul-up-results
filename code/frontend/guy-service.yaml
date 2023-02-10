@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: guy
+  labels:
+    app: guy
+spec:
+  type: LoadBalancer
+  selector:
+    app: guy
+  ports:
+    - protocol: TCP
+      port: 6061
+      targetPort: 6061
