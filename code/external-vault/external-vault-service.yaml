@@ -1,0 +1,10 @@
+  apiVersion: consul.hashicorp.com/v1alpha1
+  kind: ServiceDefaults
+  metadata:
+    name: hcp-vault
+  spec:
+    protocol: tcp
+    destination:
+      addresses:
+        - "do-not-delete-ever.vault.92607e45-319d-44bd-9879-284b72f492b8.aws.hashicorp.cloud"
+      port: 8200

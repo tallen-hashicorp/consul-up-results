@@ -9,7 +9,7 @@ global:
   metrics:
     enabled: true
   # Consul image.
-  image: hashicorp/consul:1.14.3
+  image: hashicorp/consul:1.14.4
   #image: hashicorp/consul-enterprise:1.14.3-ent
   # Envoy image.
   imageEnvoy: envoyproxy/envoy:v1.24.0
@@ -76,4 +76,4 @@ ingressGateways:
         type: LoadBalancer
         ports:
           - port: 8080
-      replicas: 1
+      replicas: 3

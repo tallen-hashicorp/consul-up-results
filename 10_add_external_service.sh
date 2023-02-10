@@ -1,0 +1,1 @@
+curl --request PUT --data @external.json localhost:8500/v1/catalog/register
