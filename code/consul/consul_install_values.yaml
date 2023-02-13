@@ -19,7 +19,7 @@ server:
   # replicas sets the number of servers.
   # In production, this should be 3 or 5, however
   # for testing, this should be set to 1.
-  replicas: 3
+  replicas: 1
   # bootstrapExpect: 1
 
 # Enable Consul's service mesh functionality.
@@ -76,4 +76,4 @@ ingressGateways:
         type: LoadBalancer
         ports:
           - port: 8080
-      replicas: 3
+      replicas: 1

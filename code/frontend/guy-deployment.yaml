@@ -15,6 +15,7 @@ spec:
         app: guy
       annotations:
         consul.hashicorp.com/connect-inject: "true"
+        consul.hashicorp.com/connect-service-upstreams: 'external-vault:1234'
     spec:
       containers:
         - name: frontend
