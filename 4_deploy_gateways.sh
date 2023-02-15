@@ -16,7 +16,6 @@ kubectl get proxydefaults global -n consul
 #and if we now check the gateway, we see it was synced(Sync: True)
 kubectl get ingressgateway ingress-gateway -n consul
 
-
 #try accessing via ingress gateway (IF NEEDED)
 kubectl port-forward service/consul-ingress-gateway -n consul 8080
 

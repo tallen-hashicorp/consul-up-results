@@ -64,6 +64,8 @@ ui:
 #   secretKey: 'license'
 #  # Manages license autoload. Required in Consul 1.10.0+, 1.9.7+ and 1.8.12+.
 #   enableLicenseAutoload: true
+client:
+  enabled: true
 terminatingGateways:
   enabled: true
 ingressGateways:

@@ -12,5 +12,5 @@ spec:
           hosts: ["bird.localhost"]
         - name: guy
           hosts: ["guy.localhost"]
-        - name: external-vault
-          hosts: ["vault.localhost"]    
+        - name: "external-nginx"
+          hosts: ["nginx.localhost"]
