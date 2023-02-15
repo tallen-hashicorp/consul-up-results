@@ -5,4 +5,7 @@ metadata:
 spec:
   services:
     - name: "external-vault"
+      caFile: "/etc/ssl/certs/ca-certificates.crt"
+      sni: "do-not-delete-ever.vault.92607e45-319d-44bd-9879-284b72f492b8.aws.hashicorp.cloud"
     - name: "external-nginx"
+    - name: "hcp-vault"

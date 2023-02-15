@@ -30,6 +30,16 @@ kubectl apply -f ./code/gateways/terminating_gateway.yaml
 kubectl apply -f ./code/intentions/external-vault_intentions.yaml 
 ```
 
+Now update the ingress gateway to use the external serivce if you have not already
+```bash
+kubectl apply -f ./code/intentions/external-vault_intentions.yaml 
+```
+
+### Testing is works
+```bash
+curl -vvvs http://vault.localhost:8080/
+```
+
 ### Testing it works
 ```bash
 kubectl exec deployments/guy -- curl -vvvs --header "Host: do-not-delete-ever.vault.92607e45-319d-44bd-9879-284b72f492b8.aws.hashicorp.cloud" http://localhost:1234/

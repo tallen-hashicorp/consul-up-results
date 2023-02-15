@@ -14,3 +14,7 @@ spec:
           hosts: ["guy.localhost"]
         - name: "external-nginx"
           hosts: ["nginx.localhost"]
+        - name: "external-vault"
+          hosts: ["vault.localhost"]
+        - name: "hcp-vault"
+          hosts: ["hcp.localhost"]

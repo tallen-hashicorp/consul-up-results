@@ -3,7 +3,7 @@
   metadata:
     name: hcp-vault
   spec:
-    protocol: tcp
+    protocol: http
     destination:
       addresses:
         - "do-not-delete-ever.vault.92607e45-319d-44bd-9879-284b72f492b8.aws.hashicorp.cloud"
