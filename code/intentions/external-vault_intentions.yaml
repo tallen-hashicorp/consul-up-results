@@ -1,0 +1,10 @@
+apiVersion: consul.hashicorp.com/v1alpha1
+kind: ServiceIntentions
+metadata:
+  name: "external-vault"
+spec:
+  destination:
+    name: "external-vault"
+  sources:
+    - name: guy
+      action: allow  

@@ -1,0 +1,23 @@
+{
+  "Node": "LOCAL",
+  "Address": "192.168.0.238",
+  "NodeMeta": {
+    "external-node": "true",
+    "external-probe": "true"
+  },
+  "Service": {
+    "ID": "external-nginx",
+    "Service": "external-nginx",
+    "Port": 8081
+  },
+  "Checks": [
+    {
+      "Name": "http-check",
+      "status": "passing",
+      "Definition": {
+        "http": "http://192.168.0.238:8081",
+        "interval": "30s"
+      }
+    }
+  ]
+}
