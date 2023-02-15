@@ -18,5 +18,8 @@ kubectl exec deployments/guy -- curl -vvvs https://do-not-delete-ever.vault.9260
 kubectl exec deployments/guy -- curl -X POST  http://localhost:19000/logging?level=debug
 kubectl logs -f  deployments/guy consul-dataplane
 
+### Docker running localy
+### TODO Change the IP address in external-nginx-service
+docker run -p 8081:80 nginx
 
 kubectl exec deployments/guy -- curl -vvvs http://localhost:1234/
