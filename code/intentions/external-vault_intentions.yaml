@@ -6,7 +6,7 @@ spec:
   destination:
     name: "external-vault"
   sources:
-    - name: guy
-      action: allow  
+    - name: frontend
+      action: allow
     - name: ingress-gateway
       action: allow  

@@ -25,7 +25,7 @@ First register the external service with with following
 curl --request PUT --data @code/external-vault/external-vault-service.json localhost:8500/v1/catalog/register
 ```
 
-Next update the terminating gateway to use the new external service and add a intention to allow guy to access the external-vault service
+Next update the terminating gateway to use the new external service and add a intention to allow frontend to access the external-vault service
 ```bash
 kubectl apply -f ./code/gateways/terminating_gateway.yaml
 kubectl apply -f ./code/intentions/external-vault_intentions.yaml 
@@ -56,7 +56,7 @@ kubectl exec deployments/frontend -- curl -vvvs --header "Host: do-not-delete-ev
 kubectl exec deployments/frontend -- curl -X POST  http://localhost:19000/logging?level=debug
 ```
 
-### Reading guy deployment envoy logs
+### Reading frontend deployment envoy logs
 ```bah
-kubectl logs -f  deployments/guy consul-dataplane
+kubectl logs -f  deployments/frontend consul-dataplane
 ```
