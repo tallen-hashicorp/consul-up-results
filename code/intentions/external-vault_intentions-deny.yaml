@@ -6,5 +6,5 @@ spec:
   destination:
     name: "external-vault"
   sources:
-    - name: guy
+    - name: frontend
       action: allow  

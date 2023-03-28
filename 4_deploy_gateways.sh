@@ -17,5 +17,5 @@ kubectl get proxydefaults global -n consul
 kubectl get ingressgateway ingress-gateway -n consul
 
 #try accessing via ingress gateway (IF NEEDED)
-kubectl port-forward service/consul-ingress-gateway -n consul 8080
+# kubectl port-forward service/consul-ingress-gateway -n consul 8080
 

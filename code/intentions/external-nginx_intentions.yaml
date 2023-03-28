@@ -6,7 +6,7 @@ spec:
   destination:
     name: "external-nginx"
   sources:
-    - name: guy
+    - name: frontend
       action: allow  
     - name: ingress-gateway
       action: allow  

@@ -6,6 +6,3 @@ kubectl apply -f ./code/intentions/frontend_service_intentions.yaml
 
 #apply allow between backend and frontend
 kubectl apply -f ./code/intentions/backend_service_intentions.yaml
-
-#apply allow between guy backend and ingress-gateway
-kubectl apply -f ./code/intentions/guy_service_intentions.yaml

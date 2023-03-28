@@ -1,4 +1,5 @@
 # Adding an external service
+![Diagram](./docs/Consul%20External%20Service.png)
 
 ### Prerequisites
 * Ensure a consul licence file is located at home/Hashicorp/consul.hclic
@@ -42,12 +43,17 @@ curl -vvvs http://vault.localhost:8080/
 
 ### Testing it works
 ```bash
-kubectl exec deployments/guy -- curl -vvvs --header "Host: do-not-delete-ever.vault.92607e45-319d-44bd-9879-284b72f492b8.aws.hashicorp.cloud" http://localhost:1234/
+kubectl exec deployments/frontend -- curl -vvvs --header "Host: do-not-delete-ever.vault.92607e45-319d-44bd-9879-284b72f492b8.aws.hashicorp.cloud" http://localhost:1234/
 ```
+
+### Gotchas
+* Ensure you dont use https:// or http:// in any urls
+* Ensure your terminating gatway matches the URL in the external service
+* Ensure your terminating gateway was `caFile: "/etc/ssl/certs/ca-certificates.crt"`
 
 ### Add envoy debug logging
 ```bash
-kubectl exec deployments/guy -- curl -X POST  http://localhost:19000/logging?level=debug
+kubectl exec deployments/frontend -- curl -X POST  http://localhost:19000/logging?level=debug
 ```
 
 ### Reading guy deployment envoy logs
